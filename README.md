@@ -1,110 +1,116 @@
-🧠🎮 Análise Comparativa do Desempenho dos Algoritmos DQN e PPO em Aprendizagem por Reforço Profundo Aplicada a Jogos Digitais
-📘 Descrição do Projeto
-Este projeto tem como objetivo comparar o desempenho de dois algoritmos de Aprendizagem por Reforço Profundo (Deep Reinforcement Learning - DRL): Deep Q-Network (DQN) e Proximal Policy Optimization (PPO). A análise é feita em um ambiente de jogo digital, com foco em aspectos como eficiência de aprendizado, estabilidade, recompensa média e tempo de treinamento.
+# ANÁLISE COMPARATIVA DO DESEMPENHO DOS ALGORITMOS DQN E PPO EM APRENDIZAGEM POR REFORÇO PROFUNDO APLICADA A JOGOS DIGITAIS
 
-A iniciativa busca compreender melhor as vantagens e desvantagens de cada abordagem (baseada em valor vs. baseada em política), além de identificar cenários onde um algoritmo se sobressai ao outro.
+## Autores
 
-🧑‍💻 Autores
-Ana Luisa da Silva Lima
+- **Ana Luisa da Silva Lima**  
 
-João Morgan de Almeida Lins do Vale
+- **João Morgan de Almeida Lins do Vale**  
 
-E-mail: j.vale@cs.unipe.edu.br
+- **Lucas Araujo Costa**  
 
-Telefone: (83) 99123-4432
+- **Jose Raul de Brito Andrade (Orientador)**    
 
-Lucas Araujo Costa
+---
 
-E-mail: lcosta@cs.unipe.edu.br
+## Resumo
 
-Telefone: (83) 98657-0820
+A aprendizagem por reforço profundo (Deep Reinforcement Learning – DRL) tem se destacado na resolução de problemas complexos, especialmente em jogos digitais, devido à sua capacidade de treinar agentes autônomos em ambientes dinâmicos. Este trabalho propõe uma análise comparativa do desempenho dos algoritmos Deep Q-Network (DQN) e Proximal Policy Optimization (PPO), representantes dos paradigmas de aprendizagem baseada em valor e baseada em política, respectivamente, em tarefas de DRL aplicadas a jogos digitais. A metodologia envolve a revisão da literatura, a definição de um ambiente de teste controlado, a implementação e treinamento dos modelos DQN e PPO, e a análise de métricas como recompensa média e estabilidade de aprendizado. Espera-se validar as diferenças de desempenho entre os algoritmos e identificar cenários onde cada um se destaca.
 
-Prof. Dr. Jose Raul de Brito Andrade (Orientador)
+**Palavras-chave:** Aprendizagem por reforço profundo, Deep Q-Network, Proximal Policy Optimization, Jogos digitais, Inteligência artificial.
 
-E-mail: jrandrade@unipe.edu.br
+---
 
-Telefone: (83) 99604-5325
+## Abstract
 
-🎯 Objetivos
-Objetivo Geral
-Comparar o desempenho dos algoritmos DQN e PPO em tarefas de DRL aplicadas a jogos digitais.
+Deep Reinforcement Learning (DRL) has excelled in solving complex problems, particularly in digital games, due to its ability to train autonomous agents in dynamic environments. This work proposes a comparative analysis of the performance of the Deep Q-Network (DQN) and Proximal Policy Optimization (PPO) algorithms, representatives of value-based and policy-based learning paradigms, respectively, in DRL tasks applied to digital games. The study includes a literature review, definition of a test environment, implementation and training of models, and performance metric analysis.
 
-Objetivos Específicos
-Realizar uma revisão bibliográfica sobre DQN e PPO.
+**Keywords:** Deep reinforcement learning, Deep Q-Network, Proximal Policy Optimization, Digital games, Artificial intelligence.
 
-Implementar e treinar ambos os algoritmos em um ambiente de jogo.
+---
 
-Avaliar os modelos com base em métricas quantitativas.
+## Introdução
 
-Analisar os resultados e discutir os pontos fortes e fracos de cada abordagem.
+A aprendizagem por reforço profunda (DRL) é amplamente utilizada na resolução de problemas complexos, com destaque para aplicações em jogos digitais. Os algoritmos DQN (baseado em valor) e PPO (baseado em política) foram escolhidos por representarem abordagens complementares na DRL. Comparar seus desempenhos possibilita identificar forças e limitações que guiam o desenvolvimento de aplicações mais eficazes.
 
-🛠️ Tecnologias Utilizadas
-Python 3.11+
+O objetivo principal deste trabalho é analisar e comparar o desempenho dos algoritmos DQN e PPO em tarefas de DRL aplicadas a jogos. Para isso, foram definidos os seguintes objetivos específicos:
 
-Stable Baselines3 (SB3)
+- Revisar a literatura sobre DRL e os algoritmos DQN e PPO;
+- Definir um ambiente de teste controlado;
+- Implementar e treinar os modelos;
+- Coletar e analisar métricas de desempenho.
 
-Gymnasium
+---
 
-Matplotlib / Seaborn (visualização)
+## Metodologia
 
-Pandas / NumPy (análise de dados)
+### 1. Revisão da Literatura
 
-🎮 Ambiente de Teste
-O ambiente de jogo utilizado foi o Breakout (versão Atari), acessado via Gymnasium. Esse jogo é comumente usado em benchmarks de DRL por sua complexidade moderada e representação visual clara, facilitando a avaliação dos algoritmos.
+A pesquisa iniciou-se com uma revisão bibliográfica sobre DRL, focando nas diferenças teóricas entre DQN (off-policy) e PPO (on-policy), guiada por fontes como Sutton & Barto (2018), Mnih et al. (2015), e Schulman et al. (2017).
 
-🧪 Metodologia
-Revisão da Literatura: Estudo teórico dos fundamentos de DRL e dos algoritmos DQN e PPO.
+### 2. Ambiente de Teste
 
-Implementação: Uso da biblioteca Stable Baselines3 para treinar os modelos.
+O ambiente utilizado foi o jogo **Breakout** do Gymnasium. Este ambiente é amplamente adotado em estudos de DRL, oferecendo recompensas imediatas e um cenário ideal para avaliar estratégias distintas.
 
-Treinamento: Cada agente foi treinado por 20 milhões de frames em condições equivalentes.
+### 3. Implementação e Treinamento
 
-Coleta de Dados: Métricas registradas durante o treinamento, como recompensa média e estabilidade.
+Os modelos foram implementados com a biblioteca [Stable Baselines3 (SB3)](https://stable-baselines3.readthedocs.io/), utilizando arquiteturas padronizadas:
 
-Análise dos Resultados: Geração de gráficos e discussão sobre desempenho, eficiência e robustez dos algoritmos.
+- **DQN:** arquitetura baseada em Mnih et al. (2015) com `experience replay`.
+- **PPO:** implementação de Schulman et al. (2017), utilizando o objetivo clipado para estabilidade.
 
-📊 Métricas Avaliadas
-Recompensa Média por Episódio
+O treinamento foi feito por **20 milhões de frames** com GPU de 8 GB de RAM.
 
-Número de Episódios até a Convergência
+### 4. Métricas de Avaliação
 
-Estabilidade do Desempenho
+- **Recompensa média por episódio**
+- **Episódios até convergência**
+- **Estabilidade do desempenho**
+- **Retorno acumulado**
+- **Tempo de treinamento**
 
-Retorno Acumulado
+---
 
-Tempo de Treinamento
+## Fundamentação Teórica
 
-📁 Organização do Projeto
-bash
-Copiar
-Editar
-📦 drl-comparativo
-├── 📂 data/                 # Dados coletados durante os treinos
-├── 📂 models/               # Modelos treinados (.zip ou .pt)
-├── 📂 notebooks/            # Jupyter Notebooks de análise e visualização
-├── 📂 src/                  # Scripts de treinamento
-│   ├── train_dqn.py
-│   └── train_ppo.py
-├── README.md               # Este arquivo
-└── requirements.txt        # Dependências do projeto
-📈 Resultados Esperados
-Espera-se identificar diferenças claras entre os algoritmos DQN e PPO em termos de:
+- **Aprendizagem por Reforço (RL):** baseado em tentativa e erro em um MDP (SUTTON; BARTO, 1998).
+- **Deep RL (DRL):** integração com redes neurais profundas para processar entradas visuais complexas (ARULKUMARAN et al., 2017).
+- **DQN:** uso de CNNs com `experience replay` e `target networks` (MNIH et al., 2015).
+- **PPO:** algoritmo baseado em política com atualizações seguras (SCHULMAN et al., 2017).
 
-Velocidade de aprendizado
+---
 
-Estabilidade durante o treino
+## Resultados e Discussão
 
-Recompensas alcançadas
+Os resultados serão apresentados por meio de:
 
-Robustez ao longo do tempo
+- Curvas de aprendizado
+- Histogramas de recompensas
+- Análises descritivas comparativas
 
-Com isso, este estudo contribui para orientar futuras escolhas de algoritmos de DRL em ambientes digitais e aplicações práticas de IA.
+O foco está na eficiência, estabilidade e tempo de convergência de cada algoritmo.
 
-📚 Referências Principais
-Mnih et al. (2015) – Human-level control through deep reinforcement learning
+---
 
-Schulman et al. (2017) – Proximal Policy Optimization Algorithms
+## Considerações Finais
 
-De La Fuente & Vidal (2024) – A Comparative Study of Deep Reinforcement Learning Models: DQN vs PPO vs A2C
+Este estudo contribui para o entendimento das vantagens e limitações de DQN e PPO em DRL. Os dados obtidos possibilitam orientar futuras pesquisas na escolha de algoritmos conforme a complexidade dos ambientes e as necessidades de estabilidade ou performance.
 
-Lista completa de referências disponível no artigo/documento principal.
+Sugestões para trabalhos futuros incluem a análise de algoritmos como A2C, TD3 ou SAC, bem como a aplicação dos métodos em ambientes com estados contínuos ou parciais.
+
+---
+
+## Referências
+
+- ARULKUMARAN, K. et al. *Deep Reinforcement Learning: A Brief Survey*. IEEE Signal Processing Magazine, 2017.
+- DE LA FUENTE, N.; VIDAL, D. A. *A comparative study of deep reinforcement learning models: DQN vs PPO vs A2C*. ACM KDD 2024.
+- FUJIMOTO, S. et al. *Addressing Function Approximation Error in Actor-Critic Methods*. ICML, 2018.
+- HAARNOJA, T. et al. *Soft Actor-Critic*. ICML, 2019.
+- LI, S. E. *Reinforcement Learning for Sequential Decision and Optimal Control*. Springer, 2023.
+- MNIH, V. et al. *Human-level control through deep reinforcement learning*. Nature, 2015.
+- MOUSAVI, S. S. et al. *Deep Reinforcement Learning: An Overview*. 2017.
+- SCHULMAN, J. et al. *Proximal policy optimization algorithms*. arXiv:1707.06347, 2017.
+- SUTTON, R. S.; BARTO, A. G. *Reinforcement Learning: An Introduction*. MIT Press, 2018.
+
+---
+
+> **Nota:** Este repositório contém os códigos e scripts necessários para executar os experimentos descritos no artigo. Certifique-se de instalar as dependências listadas em `requirements.txt`.
